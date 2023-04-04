@@ -37,3 +37,10 @@ pdf_file_path = "example.pdf"
 blockchain = Blockchain()
 pdf_hash = generate_pdf_hash(pdf_file_path)
 blockchain.add_block(pdf_hash)
+# Print out the contents of the blockchain
+for block in blockchain.chain:
+    print("Block hash: ", block.hash)
+    print("Data: ", block.data)
+    print("Timestamp: ", block.timestamp)
+    print("Previous hash: ", block.previous_hash)
+    print()
