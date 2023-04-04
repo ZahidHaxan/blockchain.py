@@ -25,3 +25,15 @@ class Blockchain:
         previous_hash = previous_block.hash
         new_block = Block(data, previous_hash)
         self.chain.append(new_block)
+
+def generate_pdf_hash(file_path):
+    with open(file_path, "rb") as f:
+        file_contents = f.read()
+    pdf_hash = hashlib.sha256(file_contents).hexdigest()
+    return pdf_hash
+
+# Example usage
+pdf_file_path = "example.pdf"
+blockchain = Blockchain()
+pdf_hash = generate_pdf_hash(pdf_file_path)
+blockchain.add_block(pdf_hash)
